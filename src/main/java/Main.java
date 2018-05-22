@@ -4,7 +4,7 @@ public class Main {
         Main application = new Main();
         System.out.println(application.factorial(5));
         System.out.println(application.fibonacci(8));
-        System.out.println();
+        System.out.println(application.count7(77));
     }
 
 
@@ -53,6 +53,15 @@ public class Main {
         } else {
             return (n % 10) + sumDigits(n / 10);
         }
+    }
+
+    private int count7(int n) {
+        if (n / 10 == 0 && n == 7) {
+            return 1;
+        } else if (n % 10 == 7) {
+            return count7(n / 10);
+        } else
+            return 0;
     }
 
 }
