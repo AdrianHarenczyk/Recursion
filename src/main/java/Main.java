@@ -4,6 +4,7 @@ public class Main {
         Main application = new Main();
         System.out.println(application.factorial(5));
         System.out.println(application.fibonacci(8));
+        System.out.println();
     }
 
 
@@ -26,6 +27,16 @@ public class Main {
             return 1;
         else
             return fibonacci(n-1) + fibonacci(n-2);
+    }
+    private int bunnyEars2(int bunnies) {
+        if (bunnies <=0)
+            return 0;
+        if (bunnies == 1)
+            return 2;
+        if (bunnies % 2 == 0)
+            return bunnyEars2(bunnies-1) + 3;
+        else
+            return bunnyEars2(bunnies-1) + 2;
     }
 
 }
