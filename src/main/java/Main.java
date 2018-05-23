@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.pairStar("hello"));
+        System.out.println(application.endX("xxre"));
     }
 
 
@@ -178,6 +178,16 @@ public class Main {
             return str.charAt(0)+"*"+pairStar(str.substring(1));
         }
         return str.charAt(0) + pairStar(str.substring(1));
+    }
+    private String endX(String str) {
+        if (str == null || str.isEmpty())
+            return "";
+        if (str.length() == 1)
+            return str;
+        if (str.charAt(0) == 'x') {
+            return endX(str.substring(1))+str.charAt(0);
+        }
+        return str.charAt(0) + endX(str.substring(1));
     }
 
 }
