@@ -84,12 +84,14 @@ public class Main {
         }
         return count8(n / 10);
     }
+
     private int powerN(int base, int n) {
         if (n == 0) {
             return 1;
         }
-        return base * powerN(base,n-1);
+        return base * powerN(base, n - 1);
     }
+
     private int countX(String str) {
         if (str.length() == 0) {
             return 0;
@@ -99,14 +101,17 @@ public class Main {
         }
         return countX(str.substring(0, str.length() - 1));
     }
-    private int countHi(String str) {
-        if (str.length() == 1) {
-            return 0;
+
+    public int countHi(String str) {
+        if (str.length() >= 2) {
+            if (str.substring(str.length() - 1, str.length()).equals("i")
+                    &&
+                    str.substring(str.length() - 2, str.length()).equals("h")) {
+                return 1 + countHi(str.substring(0, str.length() - 2));
+            }
+            return countHi(str.substring(0, str.length() - 2));
         }
-        if (str.charAt(str.length()-1)=='i' && str.charAt(str.length()-2) == 'h') {
-            return 1+countHi(str.substring(0,str.length()-2));
-        }
-        return countHi(str.substring(0,str.length()-2));
+        return countHi(str.substring(0,));
     }
 
 }
