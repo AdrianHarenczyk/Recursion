@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.endX("xxre"));
+        System.out.println(application.countAbc("abaxxaba"));
     }
 
 
@@ -197,5 +197,15 @@ public class Main {
         }
         return countPairs(str.substring(1));
     }
+    private int countAbc(String str) {
+        if (str == null || str.isEmpty() || str.length() < 3)
+            return 0;
+        if (str.substring(0,3).equals("abc") ||
+                str.substring(0,3).equals("aba")) {
+            return 1 + countAbc(str.substring(1));
+        }
+        return countAbc(str.substring(1));
+    }
+
 
 }
