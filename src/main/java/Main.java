@@ -155,5 +155,15 @@ public class Main {
             return 1 + array11(nums,index+1);
         return array11(nums,index+1);
     }
+    private boolean array220(int[] nums, int index) {
+        if (nums == null || nums.length == 0 || index+1 >= nums.length)
+            return false;
+        if (nums[index] * 10 == nums[index+1])
+            return true;
+        return array220(nums,index+1);
+    }
+    private String allStar(String str) {
+
+    }
 
 }
