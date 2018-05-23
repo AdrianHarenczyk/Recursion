@@ -4,7 +4,7 @@ public class Main {
         Main application = new Main();
         System.out.println(application.factorial(5));
         System.out.println(application.fibonacci(8));
-        System.out.println(application.count7(70701277));
+        System.out.println(application.count8(8818));
     }
 
 
@@ -71,6 +71,18 @@ public class Main {
             return 2;
         else
             return bunnyEars2(bunnies - 1) + 2;
+    }
+
+    private int count8(int n) {
+        if (n == 0)
+            return 0;
+        if (n % 10 == 8 && ((n / 10) % 10) == 8) {
+            return 2 + count8(n / 10);
+        }
+        if (n % 10 == 8) {
+            return 1 + count8(n / 10);
+        }
+        return count8(n / 10);
     }
 
 
