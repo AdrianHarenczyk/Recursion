@@ -84,6 +84,21 @@ public class Main {
         }
         return count8(n / 10);
     }
+    private int powerN(int base, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return base;
+        }
+        if (n == 2) {
+            return base * base;
+        }
+        if (n == 3) {
+            return base * base * base;
+        }
+        
+    }
 
 
 }
