@@ -189,5 +189,13 @@ public class Main {
         }
         return str.charAt(0) + endX(str.substring(1));
     }
+    private int countPairs(String str) {
+        if (str == null || str.isEmpty() || str.length() < 3)
+            return 0;
+        if (str.charAt(0) == str.charAt(2)) {
+            return 1 + countPairs(str.substring(1));
+        }
+        return countPairs(str.substring(1));
+    }
 
 }
