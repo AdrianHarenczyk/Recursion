@@ -103,15 +103,12 @@ public class Main {
     }
 
     public int countHi(String str) {
-        if (str.length() >= 2) {
-            if (str.substring(str.length() - 1, str.length()).equals("i")
-                    &&
-                    str.substring(str.length() - 2, str.length()).equals("h")) {
-                return 1 + countHi(str.substring(0, str.length() - 2));
-            }
-            return countHi(str.substring(0, str.length() - 2));
+        if (str.length() == 0 || str.length() < 2)
+            return 0;
+        if (str.substring(str.length() - 2, str.length()).equals("hi")) {
+            return 1 + countHi(str.substring(0, str.length() - 2));
         }
-        return countHi(str.substring(0,));
+        return countHi(str.substring(0, str.length() - 1));
     }
 
 }
