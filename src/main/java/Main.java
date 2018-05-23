@@ -1,3 +1,5 @@
+import java.util.StringJoiner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -5,6 +7,7 @@ public class Main {
         System.out.println(application.factorial(5));
         System.out.println(application.fibonacci(8));
         System.out.println(application.count8(8818));
+        System.out.println(application.someString("placki"));
     }
 
 
@@ -163,7 +166,11 @@ public class Main {
         return array220(nums,index+1);
     }
     private String allStar(String str) {
-
+        if (str == null || str.isEmpty())
+            return "";
+        if (str.length() == 1)
+            return str;
+        return str.charAt(0)+"*"+allStar(str.substring(1,str.length()));
     }
 
 }
