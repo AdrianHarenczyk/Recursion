@@ -90,6 +90,14 @@ public class Main {
         }
         return base * powerN(base,n-1);
     }
-
+    private int countX(String str) {
+        if (str.length() == 0) {
+            return 0;
+        }
+        if (str.substring(str.length() - 1).equals("x")) {
+            return 1 + countX(str.substring(0, str.length() - 1));
+        }
+        return countX(str.substring(0, str.length() - 1));
+    }
 
 }
