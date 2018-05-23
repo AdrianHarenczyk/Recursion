@@ -137,5 +137,12 @@ public class Main {
         }
         return noX(str.replaceFirst("x",""));
     }
+    private boolean array6(int[] nums, int index) {
+        if (nums == null || nums.length == 0 || index >= nums.length)
+            return false;
+        if (nums[index] == 6)
+            return true;
+        return array6(nums,index+1);
+    }
 
 }
