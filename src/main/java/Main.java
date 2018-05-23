@@ -4,7 +4,7 @@ public class Main {
         Main application = new Main();
         System.out.println(application.factorial(5));
         System.out.println(application.fibonacci(8));
-        System.out.println(application.count7(77));
+        System.out.println(application.count7(70701277));
     }
 
 
@@ -56,12 +56,12 @@ public class Main {
     }
 
     private int count7(int n) {
-        if (n / 10 == 0 && n == 7) {
-            return 1;
-        } else if (n % 10 == 7) {
-            return count7(n / 10);
-        } else
+        if (n == 0)
             return 0;
+        if (n % 10 == 7) {
+            return 1 + count7(n / 10);
+        }
+        return count7(n / 10);
     }
 
     public int bunnyEars(int bunnies) {
