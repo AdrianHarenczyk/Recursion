@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.count11("abc11x11x11"));
+        System.out.println(application.stringClean("abbbcdd"));
     }
 
 
@@ -223,6 +223,14 @@ public class Main {
             return 1 + count11(str.substring(2));
         }
         return count11(str.substring(1));
+    }
+    private String stringClean(String str) {
+        if (str == null || str.isEmpty() || str.length() <2)
+            return str;
+        if (str.charAt(0) == str.charAt(1)) {
+            return stringClean(str.substring(1));
+        }
+        return str.charAt(0) + stringClean(str.substring(1));
     }
 
 
