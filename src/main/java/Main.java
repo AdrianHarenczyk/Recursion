@@ -1,10 +1,8 @@
-import java.util.StringJoiner;
-
 public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.countAbc("abaxxaba"));
+        System.out.println(application.count11("abc11x11x11"));
     }
 
 
@@ -110,6 +108,7 @@ public class Main {
         }
         return countHi(str.substring(0, str.length() - 1));
     }
+
     private String changeXY(String str) {
         if (str == null || str.equals("")) {
             return "";
@@ -117,8 +116,9 @@ public class Main {
         if (!str.contains("x")) {
             return str;
         }
-        return changeXY(str.replaceFirst("x","y"));
+        return changeXY(str.replaceFirst("x", "y"));
     }
+
     private String changePi(String str) {
         if (str == null || str.equals("")) {
             return "";
@@ -126,8 +126,9 @@ public class Main {
         if (!str.contains("pi")) {
             return str;
         }
-        return changePi(str.replaceFirst("pi","3.14"));
+        return changePi(str.replaceFirst("pi", "3.14"));
     }
+
     private String noX(String str) {
         if (str == null || str.equals("")) {
             return "";
@@ -135,60 +136,67 @@ public class Main {
         if (!str.contains("x")) {
             return str;
         }
-        return noX(str.replaceFirst("x",""));
+        return noX(str.replaceFirst("x", ""));
     }
+
     private boolean array6(int[] nums, int index) {
         if (nums == null || nums.length == 0 || index >= nums.length)
             return false;
         if (nums[index] == 6)
             return true;
-        return array6(nums,index+1);
+        return array6(nums, index + 1);
     }
+
     private int array11(int[] nums, int index) {
         if (nums == null || nums.length == 0)
             return 0;
-        if (index == nums.length -1 && nums[index] == 11)
+        if (index == nums.length - 1 && nums[index] == 11)
             return 1;
-        if (index == nums.length -1 && nums[index] != 11)
+        if (index == nums.length - 1 && nums[index] != 11)
             return 0;
         if (index < nums.length && nums[index] == 11)
-            return 1 + array11(nums,index+1);
-        return array11(nums,index+1);
+            return 1 + array11(nums, index + 1);
+        return array11(nums, index + 1);
     }
+
     private boolean array220(int[] nums, int index) {
-        if (nums == null || nums.length == 0 || index+1 >= nums.length)
+        if (nums == null || nums.length == 0 || index + 1 >= nums.length)
             return false;
-        if (nums[index] * 10 == nums[index+1])
+        if (nums[index] * 10 == nums[index + 1])
             return true;
-        return array220(nums,index+1);
+        return array220(nums, index + 1);
     }
+
     private String allStar(String str) {
         if (str == null || str.isEmpty())
             return "";
         if (str.length() == 1)
             return str;
-        return str.charAt(0)+"*"+allStar(str.substring(1));
+        return str.charAt(0) + "*" + allStar(str.substring(1));
     }
+
     private String pairStar(String str) {
         if (str == null || str.isEmpty())
             return "";
         if (str.length() == 1)
             return str;
         if (str.charAt(0) == str.charAt(1)) {
-            return str.charAt(0)+"*"+pairStar(str.substring(1));
+            return str.charAt(0) + "*" + pairStar(str.substring(1));
         }
         return str.charAt(0) + pairStar(str.substring(1));
     }
+
     private String endX(String str) {
         if (str == null || str.isEmpty())
             return "";
         if (str.length() == 1)
             return str;
         if (str.charAt(0) == 'x') {
-            return endX(str.substring(1))+str.charAt(0);
+            return endX(str.substring(1)) + str.charAt(0);
         }
         return str.charAt(0) + endX(str.substring(1));
     }
+
     private int countPairs(String str) {
         if (str == null || str.isEmpty() || str.length() < 3)
             return 0;
@@ -197,14 +205,24 @@ public class Main {
         }
         return countPairs(str.substring(1));
     }
+
     private int countAbc(String str) {
         if (str == null || str.isEmpty() || str.length() < 3)
             return 0;
-        if (str.substring(0,3).equals("abc") ||
-                str.substring(0,3).equals("aba")) {
+        if (str.substring(0, 3).equals("abc") ||
+                str.substring(0, 3).equals("aba")) {
             return 1 + countAbc(str.substring(1));
         }
         return countAbc(str.substring(1));
+    }
+
+    private int count11(String str) {
+        if (str == null || str.isEmpty() || str.length() < 2)
+            return 0;
+        if (str.substring(0, 2).equals("11")) {
+            return 1 + count11(str.substring(2));
+        }
+        return count11(str.substring(1));
     }
 
 
