@@ -128,5 +128,14 @@ public class Main {
         }
         return changePi(str.replaceFirst("pi","3.14"));
     }
+    private String noX(String str) {
+        if (str == null || str.equals("")) {
+            return "";
+        }
+        if (!str.contains("x")) {
+            return str;
+        }
+        return noX(str.replaceFirst("x",""));
+    }
 
 }
