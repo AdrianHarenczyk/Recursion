@@ -144,5 +144,16 @@ public class Main {
             return true;
         return array6(nums,index+1);
     }
+    private int array11(int[] nums, int index) {
+        if (nums == null || nums.length == 0)
+            return 0;
+        if (index == nums.length -1 && nums[index] == 11)
+            return 1;
+        if (index == nums.length -1 && nums[index] != 11)
+            return 0;
+        if (index < nums.length && nums[index] == 11)
+            return 1 + array11(nums,index+1);
+        return array11(nums,index+1);
+    }
 
 }
