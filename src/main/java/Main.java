@@ -4,10 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.factorial(5));
-        System.out.println(application.fibonacci(8));
-        System.out.println(application.count8(8818));
-        System.out.println(application.someString("placki"));
+        System.out.println(application.pairStar("hello"));
     }
 
 
@@ -170,7 +167,17 @@ public class Main {
             return "";
         if (str.length() == 1)
             return str;
-        return str.charAt(0)+"*"+allStar(str.substring(1,str.length()));
+        return str.charAt(0)+"*"+allStar(str.substring(1));
+    }
+    private String pairStar(String str) {
+        if (str == null || str.isEmpty())
+            return "";
+        if (str.length() == 1)
+            return str;
+        if (str.charAt(0) == str.charAt(1)) {
+            return str.charAt(0)+"*"+pairStar(str.substring(1));
+        }
+        return str.charAt(0) + pairStar(str.substring(1));
     }
 
 }
