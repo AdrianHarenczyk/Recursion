@@ -88,16 +88,7 @@ public class Main {
         if (n == 0) {
             return 1;
         }
-        if (n == 1) {
-            return base;
-        }
-        if (n == 2) {
-            return base * base;
-        }
-        if (n == 3) {
-            return base * base * base;
-        }
-        
+        return base * powerN(base,n-1);
     }
 
 
