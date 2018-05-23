@@ -119,5 +119,14 @@ public class Main {
         }
         return changeXY(str.replaceFirst("x","y"));
     }
+    private String changePi(String str) {
+        if (str == null || str.equals("")) {
+            return "";
+        }
+        if (!str.contains("pi")) {
+            return str;
+        }
+        return changePi(str.replaceFirst("pi","3.14"));
+    }
 
 }
