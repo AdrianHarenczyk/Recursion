@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.parenBit("x(hello)"));
+        System.out.println(application.nestParen("((()))"));
     }
 
 
@@ -252,9 +252,21 @@ public class Main {
         if (str == null || str.length() < 2)
             return "";
         if (str.charAt(0) == '(' && str.contains(")")) {
-            return str.charAt(0) + str.substring(1,str.lastIndexOf(')')+1);
+            return str.charAt(0) + str.substring(1, str.lastIndexOf(')') + 1);
         }
         return parenBit(str.substring(1));
+    }
+
+    private boolean nestParen(String str) {
+        if (str == null || str.isEmpty())
+            return true;
+        if (str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')') {
+            if (str.length() == 2) {
+                return true;
+            }
+            return nestParen(str.substring(1, str.length() - 1));
+        }
+        return false;
     }
 
 
