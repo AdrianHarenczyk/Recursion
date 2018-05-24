@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.countHi2("ahibhi"));
+        System.out.println(application.countHi2("ahixhi"));
     }
 
 
@@ -233,10 +233,12 @@ public class Main {
         return str.charAt(0) + stringClean(str.substring(1));
     }
     private int countHi2(String str) {
-        if (str == null || str.length() < 3)
+        if (str == null || str.length() < 2)
             return 0;
-        if (str.substring(0,2).equals("hi") && !str.substring(0,3).equals("xhi")) {
-            return 1 + countHi2(str.substring(2, str.length()));
+        if (str.length() >= 3) {
+            if (str.substring(0,3).equals("xhi")) {
+                return countHi2(str.substring(3, str.length()));
+            }
         }
         if (str.substring(0,2).equals("hi")) {
             return 1 + countHi2(str.substring(2, str.length()));
