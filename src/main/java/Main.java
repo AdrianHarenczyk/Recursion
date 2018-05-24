@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.countHi2("ahixhi"));
+        System.out.println(application.parenBit("x(hello)"));
     }
 
 
@@ -224,26 +224,37 @@ public class Main {
         }
         return count11(str.substring(1));
     }
+
     private String stringClean(String str) {
-        if (str == null || str.isEmpty() || str.length() <2)
+        if (str == null || str.isEmpty() || str.length() < 2)
             return str;
         if (str.charAt(0) == str.charAt(1)) {
             return stringClean(str.substring(1));
         }
         return str.charAt(0) + stringClean(str.substring(1));
     }
+
     private int countHi2(String str) {
         if (str == null || str.length() < 2)
             return 0;
         if (str.length() >= 3) {
-            if (str.substring(0,3).equals("xhi")) {
+            if (str.substring(0, 3).equals("xhi")) {
                 return countHi2(str.substring(3, str.length()));
             }
         }
-        if (str.substring(0,2).equals("hi")) {
+        if (str.substring(0, 2).equals("hi")) {
             return 1 + countHi2(str.substring(2, str.length()));
         }
         return countHi2(str.substring(1, str.length()));
+    }
+
+    private String parenBit(String str) {
+        if (str == null || str.length() < 2)
+            return "";
+        if (str.charAt(0) == '(' && str.contains(")")) {
+            return str.charAt(0) + str.substring(1,str.lastIndexOf(')')+1);
+        }
+        return parenBit(str.substring(1));
     }
 
 
