@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.nestParen("((()))"));
+        System.out.println(application.strCount("catcowcat","cow"));
     }
 
 
@@ -268,6 +268,17 @@ public class Main {
         }
         return false;
     }
+
+    private int strCount(String str, String sub) {
+        if (str == null || str.length() < sub.length()) {
+            return 0;
+        }
+        if (str.substring(0,sub.length()).contains(sub)) {
+            return 1+strCount(str.substring(sub.length()),sub);
+        }
+        return strCount(str.substring(1),sub);
+    }
+
 
 
 }
