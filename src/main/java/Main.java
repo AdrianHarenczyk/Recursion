@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.strCount("catcowcat","cow"));
+        System.out.println(application.strCopies("iiijjj", "ii", 2));
     }
 
 
@@ -278,6 +278,22 @@ public class Main {
         }
         return strCount(str.substring(1),sub);
     }
+    private boolean strCopies(String str, String sub, int n) {
+        if (n == 0 || str == null || sub == null ) {
+            return true;
+        }
+        if (str.length() < sub.length()) {
+            return false;
+        }
+        if (str.equals(sub) && n == 1) {
+            return true;
+        }
+        if (str.substring(0,sub.length()).contains(sub)) {
+            return strCopies(str.substring(1),sub,n-1);
+        }
+        return strCopies(str.substring(1),sub,n);
+    }
+
 
 
 
