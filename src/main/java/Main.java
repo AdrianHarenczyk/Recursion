@@ -2,9 +2,8 @@ public class Main {
 
     public static void main(String[] args) {
         Main application = new Main();
-        System.out.println(application.strCopies("iiijjj", "ii", 2));
+        System.out.println(application.strDist("catcowcat", "cat"));
     }
-
 
     private int factorial(int n) {
         if (n < 0)
@@ -273,13 +272,14 @@ public class Main {
         if (str == null || str.length() < sub.length()) {
             return 0;
         }
-        if (str.substring(0,sub.length()).contains(sub)) {
-            return 1+strCount(str.substring(sub.length()),sub);
+        if (str.substring(0, sub.length()).contains(sub)) {
+            return 1 + strCount(str.substring(sub.length()), sub);
         }
-        return strCount(str.substring(1),sub);
+        return strCount(str.substring(1), sub);
     }
+
     private boolean strCopies(String str, String sub, int n) {
-        if (n == 0 || str == null || sub == null ) {
+        if (n == 0 || str == null || sub == null) {
             return true;
         }
         if (str.length() < sub.length()) {
@@ -288,13 +288,49 @@ public class Main {
         if (str.equals(sub) && n == 1) {
             return true;
         }
-        if (str.substring(0,sub.length()).contains(sub)) {
-            return strCopies(str.substring(1),sub,n-1);
+        if (str.substring(0, sub.length()).contains(sub)) {
+            return strCopies(str.substring(1), sub, n - 1);
         }
-        return strCopies(str.substring(1),sub,n);
+        return strCopies(str.substring(1), sub, n);
     }
 
-
+//    private int strDist(String str, String sub) {
+//        if (str == null || sub == null || str.isEmpty()) {
+//            return 0;
+//        }
+//        if (str.startsWith(sub) && !str.substring(sub.length()).contains(sub)) {
+//            return sub.length();
+//        }
+//        if (str.length() == sub.length() && !str.equals(sub)) {
+//            return 0;
+//        }
+//        if (str.startsWith(sub) && str.substring(sub.length()).contains(sub)) {
+//            return (2 * sub.length()) + str.substring(sub.length(),str.lastIndexOf(sub)).length();
+//        }
+//        return strDist(str.substring(1),sub);
+//    }
+    private int strDist(String str, String sub) {
+        if (str == null || sub == null || str.isEmpty() || !str.contains(sub)) {
+            return 0;
+        }
+        if (str.startsWith(sub) && str.endsWith(sub)) {
+            return str.length();
+        }
+        if (!str.startsWith(sub)) {
+            return strDist(str.substring(str.indexOf(sub)), sub);
+        }
+        if (!str.endsWith(sub)) {
+            return strDist(str.substring(0, str.lastIndexOf(sub) + sub.length()), sub);
+        }
+        return 0;
+//        if (str.length() == sub.length() && !str.equals(sub)) {
+//            return 0;
+//        }
+//        if (str.startsWith(sub) && str.endsWith(sub)) {
+//            return str.length();
+//        }
+//        return strDist(str.substring(1,str.length()-2),sub);
+    }
 
 
 }
